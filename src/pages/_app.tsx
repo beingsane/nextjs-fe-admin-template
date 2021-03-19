@@ -35,7 +35,7 @@ class StartupApp extends App {
     return (
       <>
         <Head>
-          <title>Patrik Duch, Solutions Architect</title>
+          <title>Patrik Duch, Enterprise Solutions Architect</title>
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="stylesheet"
