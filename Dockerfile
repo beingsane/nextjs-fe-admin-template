@@ -9,16 +9,15 @@ WORKDIR /src
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN yarn
+RUN npm install --only=production
+RUN npm install --save-dev typescript
 
 # Bundle app source
 COPY . .
 
-RUN yarn build
-
-RUN yarn add --dev typescript
-
+RUN npm run build
+RUN npm i -D typescript
 
 EXPOSE 80
 
-CMD yarn start
+CMD npm start

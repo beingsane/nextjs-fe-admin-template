@@ -8,7 +8,7 @@ docker build -f Dockerfile -t nextjs-fe-admin-template .
 
 ### run image
 
-docker run -p 80:3000 nextjs-fe-admin-template
+docker run -p 80:80 nextjs-fe-admin-template
 
 ## stylization
 
