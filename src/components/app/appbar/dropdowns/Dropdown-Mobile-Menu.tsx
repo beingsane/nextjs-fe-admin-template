@@ -17,44 +17,43 @@ interface IProps {
 }
 
 /**
- * @function AppBarDropdownMobileMenu Component for triggering visibility state of dropdown menu for mobile devices. 
+ * @function AppBarDropdownMobileMenu Component for triggering visibility state of dropdown menu for mobile devices.
  * @param anchorEl Anchor element from which is dropdown triggered.
  * @param isMenuOpen State of menu visibility.
  * @param handleMenuClose  Event handler for opening and closing dropdown menu.
  * @param handleProfileMenuOpen Event handler for profile nav-item.
  */
 const AppbarDropdownMobileMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenuClose, handleProfileMenuOpen }) => {
+  const mobileMenuId = 'primary-search-account-menu-mobile';
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
+  const { t } = useTranslation(['sidebar']);
 
-    const { t } = useTranslation(['sidebar']);
-
-    return (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem>
-                <IconButton color="inherit">
-                    <Badge badgeContent={11} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>{t('notification_label')}</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton color="inherit">
-                    <AccountCircle />
-                </IconButton>
-                <p>{t('profile_label')}</p>
-            </MenuItem>
-        </Menu>
-    );
-}
+  return (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem>
+        <IconButton color="inherit">
+          <Badge badgeContent={11} color="secondary">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>{t('notification_label')}</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton color="inherit">
+          <AccountCircle />
+        </IconButton>
+        <p>{t('profile_label')}</p>
+      </MenuItem>
+    </Menu>
+  );
+};
 
 export default AppbarDropdownMobileMenu;

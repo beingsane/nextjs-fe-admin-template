@@ -1,5 +1,5 @@
-import * as actionTypes from "@redux/actionTypes";
-import { Dispatch } from "redux";
+import * as actionTypes from '@redux/actionTypes';
+import { Dispatch } from 'redux';
 
 /**
  * @function fetchProjectDetail - REST API call to fetch current details about project.
@@ -11,13 +11,13 @@ export const fetchProjectDetail = () => async (dispatch: Dispatch): Promise<void
       type: actionTypes.FETCH_PROJECT_DETAIL_SUCCESS,
       payload: {
         data: {
-          name: "Test projectname",
-        },
-      },
+          name: 'Test projectname'
+        }
+      }
     });
   } catch {
     dispatch({
-      type: actionTypes.FETCH_PROJECT_DETAIL_FAIL,
+      type: actionTypes.FETCH_PROJECT_DETAIL_FAIL
     });
   }
 };

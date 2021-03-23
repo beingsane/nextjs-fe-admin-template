@@ -1,9 +1,9 @@
 import IStyledComponentProps from '@typescript/interfaces/shared/styled-components/IStyled-React-Component-Props';
 import { useState } from 'react';
 import styled from 'styled-components';
-import LeftMenuBar from '../app/sidebar/Sidebar-Container';
 import MainLayout from './Main-Layout';
 import TopMenuBar from './TopMenu-Bar';
+import LeftMenuBar from '../app/sidebar/Sidebar-Container';
 
 /**
  * @interface IProps Component`s props interface.
@@ -17,19 +17,19 @@ interface IProps extends IStyledComponentProps { }
  * @returns JSX designed content of administration.
  */
 const MainContainer: React.FC<IProps> = ({ children, className }) => {
-    const [drawerOpen, setDrawerOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(true);
 
-    const handleToggleDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    };
+  const handleToggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
-    return (
-        <div className={className}>
-            <TopMenuBar />
-            <LeftMenuBar drawerOpen={drawerOpen} handleToggleDrawer={handleToggleDrawer} />
-            <MainLayout open={drawerOpen}>{children}</MainLayout>
-        </div>
-    );
+  return (
+    <div className={className}>
+      <TopMenuBar />
+      <LeftMenuBar drawerOpen={drawerOpen} handleToggleDrawer={handleToggleDrawer} />
+      <MainLayout open={drawerOpen}>{children}</MainLayout>
+    </div>
+  );
 };
 
 export default styled(MainContainer)`

@@ -1,7 +1,7 @@
-import { FETCH_PROJECT_DETAIL_SUCCESS } from "../../actionTypes";
 import { HYDRATE } from 'next-redux-wrapper';
-import ProjectDetailTypeModel from "@typescript/types/app/models/Project-Detail-Type-Model";
-import initialState from "../../initial-state";
+import ProjectDetailTypeModel from '@typescript/types/app/models/Project-Detail-Type-Model';
+import { FETCH_PROJECT_DETAIL_SUCCESS } from '../../actionTypes';
+import initialState from '../../initial-state';
 
 /**
  * @type ActionPayloadType Reducer`s payload type.
@@ -18,14 +18,14 @@ type ActionPayloadType = {
  */
 const projectDetailReducer = (state = initialState, action: ActionPayloadType): typeof initialState => {
   switch (action.type) {
-    case HYDRATE:
-      return {
-        ...state,
-      };
-    case FETCH_PROJECT_DETAIL_SUCCESS:
-      return { ...state, };
-    default:
-      return state;
+  case HYDRATE:
+    return {
+      ...state
+    };
+  case FETCH_PROJECT_DETAIL_SUCCESS:
+    return { ...state };
+  default:
+    return state;
   }
 };
 

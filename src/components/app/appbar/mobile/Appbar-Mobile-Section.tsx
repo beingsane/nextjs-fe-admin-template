@@ -7,18 +7,15 @@ import styled from 'styled-components';
 interface IProps extends IStyledComponentProps { }
 
 /**
- * @function AppbarMobileSection 
+ * @function AppbarMobileSection
  * @param children
  * @param className
  */
-const AppbarMobileSection: React.FC<IProps> = ({ children, className }) => {
-
-    return (
-        <section className={className}>
-            { children}
-        </section>
-    );
-}
+const AppbarMobileSection: React.FC<IProps> = ({ children, className }) => (
+  <section className={className}>
+    { children}
+  </section>
+);
 
 export default styled(AppbarMobileSection)`
 

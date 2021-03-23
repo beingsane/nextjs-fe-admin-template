@@ -23,23 +23,22 @@ interface IProps extends IStyledComponentProps {
  * @returns JSX markup of CTA language chooser button.
  */
 const LanguageChooserCTA: React.FC<IProps> = ({ className, displayName, handleLangStateChange, isActive, langCode }) => {
-
-    /**
+  /**
     * Event handler for changin current language of whole admin portal.
     * @param langCode String representation of target language ("cs", "en" etc.)
     */
-    const handleLanguageChange = (langCode: string) => {
-        i18n.changeLanguage(langCode);
+  const handleLanguageChange = (langCode: string) => {
+    i18n.changeLanguage(langCode);
 
-        // Change the state on the parrent component
-        handleLangStateChange(langCode);
-    }
+    // Change the state on the parrent component
+    handleLangStateChange(langCode);
+  };
 
-    return (
-        <span className={className} >
-            <Button variant={isActive ? 'contained' : null} color="primary" onClick={() => handleLanguageChange(langCode)}>{displayName.toLocaleUpperCase()}</Button>
-        </span>
-    );
+  return (
+    <span className={className} >
+      <Button variant={isActive ? 'contained' : null} color="primary" onClick={() => handleLanguageChange(langCode)}>{displayName.toLocaleUpperCase()}</Button>
+    </span>
+  );
 };
 
 export default styled(LanguageChooserCTA)`

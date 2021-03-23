@@ -1,11 +1,11 @@
-import NextI18Next from "next-i18next";
-import path from "path";
+import NextI18Next from 'next-i18next';
+import path from 'path';
 
 // Internacionalization global setup
 const NextI18Instance = new NextI18Next({
-  defaultLanguage: "cs",
-  otherLanguages: ["cs", "en"],
-  localePath: path.resolve("./public/locales"),
+  defaultLanguage: 'cs',
+  otherLanguages: ['cs', 'en'],
+  localePath: path.resolve('./public/locales')
 });
 
 export const {
@@ -13,7 +13,7 @@ export const {
   useTranslation,
   withTranslation,
   i18n,
-  Link,
+  Link
 } = NextI18Instance;
 
 export interface WithNamespaces {

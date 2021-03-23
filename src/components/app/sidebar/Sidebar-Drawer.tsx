@@ -1,7 +1,6 @@
 import { Drawer } from '@material-ui/core';
 import styled, { css } from 'styled-components';
 
-
 const SidebarDrawer = styled(Drawer)`
   z-index: ${({ theme }) => theme.zIndex.drawer};
 
@@ -14,20 +13,20 @@ const SidebarDrawer = styled(Drawer)`
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 
   transition: ${({ theme }) =>
-        theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        })};
+    theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })};
 
   ${({ open, theme }) =>
-        open &&
+    open &&
         css`
       width: 240px;
 
       transition: ${theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        })};
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen
+  })};
     `}
 `;
 

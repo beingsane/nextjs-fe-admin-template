@@ -12,9 +12,7 @@ interface IProps extends ThemeType, IStyledComponentProps { }
  * @param children Content node that is placed inside this common component.
  * @param className Generated classname via "styled-components" library.
  */
-const HeaderTitle: React.FC<IProps> = ({ children, className }) => {
-  return <h1 className={className}>{children}</h1>;
-};
+const HeaderTitle: React.FC<IProps> = ({ children, className }) => <h1 className={className}>{children}</h1>;
 
 /* Style of common component. */
 export default styled(HeaderTitle)`

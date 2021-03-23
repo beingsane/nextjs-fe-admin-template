@@ -9,9 +9,9 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import SettingsIcon from '@material-ui/icons/Settings';
 import GroupIcon from '@material-ui/icons/Group';
 import styled from 'styled-components';
-import { Link, useTranslation } from '../../../i18n';
-import SidebarDrawer from './Sidebar-Drawer';
 import { useEffect, useState } from 'react';
+import SidebarDrawer from './Sidebar-Drawer';
+import { Link, useTranslation } from '../../../i18n';
 
 const StyledPaper = styled.div`
   margin-top: 64px;
@@ -30,7 +30,6 @@ const ToggleMenu = styled(StyledListItem)`
   bottom: 70px;
 `;
 
-
 /**
  * @interface IProps Component`s props interface.
  */
@@ -46,71 +45,65 @@ interface IProps {
  * @returns JSX markup for displaying all components of left admin siderbar.
  */
 const SideBarContainer: React.FC<IProps> = ({ drawerOpen, handleToggleDrawer }) => {
+  const { t } = useTranslation(['sidebar']);
 
-    const { t } = useTranslation(['sidebar']);
+  const [language, setLanguage] = useState('');
 
-    const [language, setLanguage] = useState("");
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, []);
 
+  const handleLangStateChange = (langCode: string) => {
+    setLanguage(langCode);
+  };
 
-    useEffect(() => {
-        setLanguage(i18n.language);
-    }, []);
+  return (
+    <SidebarDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
+      <List>
+        <Link href="/">
+          <StyledListItem button>
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </StyledListItem>
+        </Link>
+      </List>
+      <Divider />
+      <List>
+        <Link href="/users">
+          <StyledListItem button>
+            <ListItemIcon>
+              <GroupIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('users_sideitem_label')} />
+          </StyledListItem>
+        </Link>
+        <Link href="/settings">
+          <StyledListItem button>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('settings_sideitem_label')} />
+          </StyledListItem>
+        </Link>
 
-    const handleLangStateChange = (langCode: string) => {
-        setLanguage(langCode);
-    };
+        <hr />
 
+        <LanguageChooserContainer>
+          <LanguageChooserCTA langCode='en' displayName='en' isActive={language === 'en'} handleLangStateChange={handleLangStateChange} />
+          <LanguageChooserCTA langCode='cs' displayName='cz' isActive={language === 'cs'} handleLangStateChange={handleLangStateChange} />
+        </LanguageChooserContainer>
 
+      </List>
+      <ToggleMenu button onClick={handleToggleDrawer}>
+        <ListItemIcon>
+          <MenuOpenIcon />
+        </ListItemIcon>
+      </ToggleMenu>
 
-    return (
-        <SidebarDrawer variant="permanent" open={drawerOpen} PaperProps={{ component: StyledPaper }}>
-            <List>
-                <Link href="/">
-                    <StyledListItem button>
-                        <ListItemIcon>
-                            <DashboardIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Dashboard" />
-                    </StyledListItem>
-                </Link>
-            </List>
-            <Divider />
-            <List>
-                <Link href="/users">
-                    <StyledListItem button>
-                        <ListItemIcon>
-                            <GroupIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={t('users_sideitem_label')} />
-                    </StyledListItem>
-                </Link>
-                <Link href="/settings">
-                    <StyledListItem button>
-                        <ListItemIcon>
-                            <SettingsIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={t('settings_sideitem_label')} />
-                    </StyledListItem>
-                </Link>
-
-                <hr />
-
-                <LanguageChooserContainer>
-                    <LanguageChooserCTA langCode='en' displayName='en' isActive={language == 'en'} handleLangStateChange={handleLangStateChange} />
-                    <LanguageChooserCTA langCode='cs' displayName='cz' isActive={language == 'cs'} handleLangStateChange={handleLangStateChange} />
-                </LanguageChooserContainer>
-
-            </List>
-            <ToggleMenu button onClick={handleToggleDrawer}>
-                <ListItemIcon>
-                    <MenuOpenIcon />
-                </ListItemIcon>
-            </ToggleMenu>
-
-
-
-        </SidebarDrawer>
-    );
+    </SidebarDrawer>
+  );
 };
 
 export default SideBarContainer;

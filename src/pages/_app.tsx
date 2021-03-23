@@ -1,13 +1,13 @@
-import App from "next/app";
-import { CssBaseline } from "@material-ui/core";
-import GlobalStyle from "@components/styled-components/Global-Style";
-import Head from "next/head";
-import React from "react";
-import { StylesProvider } from "@material-ui/core/styles";
-import { ThemeProvider } from "styled-components";
-import { appWithTranslation } from "src/i18n";
-import theme from "../theme";
-import { wrapper } from "../redux/store";
+import App from 'next/app';
+import { CssBaseline } from '@material-ui/core';
+import GlobalStyle from '@components/styled-components/Global-Style';
+import Head from 'next/head';
+import React from 'react';
+import { StylesProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from 'styled-components';
+import { appWithTranslation } from 'src/i18n';
+import theme from '../theme';
+import { wrapper } from '../redux/store';
 
 /**
  * @class StartupApp Configuration component that is called for each page component.
@@ -24,12 +24,12 @@ class StartupApp extends App {
       ? await Component.getInitialProps(ctx)
       : {};
 
-    //Anything returned here can be access by the client
-    return { pageProps: pageProps };
+    // Anything returned here can be access by the client
+    return { pageProps };
   }
 
   render() {
-    //Information that was returned  from 'getInitialProps' are stored in the props i.e. pageProps
+    // Information that was returned  from 'getInitialProps' are stored in the props i.e. pageProps
     const { Component, pageProps } = this.props;
 
     return (

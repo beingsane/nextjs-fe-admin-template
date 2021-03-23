@@ -27,7 +27,7 @@ MyDocument.getInitialProps = async (ctx) => {
     ctx.renderPage = () =>
       originalRenderPage({
         enhanceApp: (App) => (props) =>
-          styledComponentSheet.collectStyles(materialUiSheets.collect(<App {...props} />)),
+          styledComponentSheet.collectStyles(materialUiSheets.collect(<App {...props} />))
       });
     const initialProps = await Document.getInitialProps(ctx);
     return {
@@ -37,8 +37,8 @@ MyDocument.getInitialProps = async (ctx) => {
           {initialProps.styles}
           {materialUiSheets.getStyleElement()}
           {styledComponentSheet.getStyleElement()}
-        </React.Fragment>,
-      ],
+        </React.Fragment>
+      ]
     };
   } finally {
     styledComponentSheet.seal();

@@ -8,20 +8,19 @@ import { useTranslation } from 'src/i18n';
  * @returns JSX markup for listing collection of users.
  */
 const UserPage: NextPage = () => {
+  const { t } = useTranslation(['userspage']);
 
-    const { t } = useTranslation(['userspage']);
-
-    return (
-        <MainContainer>
-            <Grid container>
-                <Grid item xs={10}>
-                    <Typography component="h1" variant="h5">
-                        {t('pagetitle')}
-                    </Typography>
-                </Grid>
-            </Grid>
-        </MainContainer>
-    );
-}
+  return (
+    <MainContainer>
+      <Grid container>
+        <Grid item xs={10}>
+          <Typography component="h1" variant="h5">
+            {t('pagetitle')}
+          </Typography>
+        </Grid>
+      </Grid>
+    </MainContainer>
+  );
+};
 
 export default UserPage;
