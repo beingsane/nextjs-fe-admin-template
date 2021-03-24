@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { appWithTranslation } from 'src/i18n';
 import theme from '../theme';
 import { wrapper } from '../redux/store';
+import { fetchProjectDetail } from '@redux/actions/project-detail/project-detail-actions';
 
 /**
  * @class StartupApp Configuration component that is called for each page component.
@@ -20,6 +21,9 @@ class StartupApp extends App {
    * @returns page properties.
    */
   static async getInitialProps({ Component, ctx }) {
+
+    ctx.store.dispatch(fetchProjectDetail());
+
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {};

@@ -8,7 +8,9 @@ import initialState from '../../initial-state';
  */
 type ActionPayloadType = {
   type: string;
-  payload: ProjectDetailTypeModel;
+  payload: {
+    data: ProjectDetailTypeModel
+  };
 };
 
 /**
@@ -16,14 +18,17 @@ type ActionPayloadType = {
  * @param state   => Initial state for project detail`s reducer.
  * @param action  => Action that enters into project detail`s reducer.
  */
-const projectDetailReducer = (state = initialState, action: ActionPayloadType): typeof initialState => {
+const projectDetailReducer = (state = initialState.projectDetail, action: ActionPayloadType): typeof initialState.projectDetail => {
   switch (action.type) {
   case HYDRATE:
     return {
       ...state
     };
-  case FETCH_PROJECT_DETAIL_SUCCESS:
-    return { ...state };
+  case FETCH_PROJECT_DETAIL_SUCCESS:  
+    return {       
+       ...state,
+       name: action.payload.data.name,
+    };
   default:
     return state;
   }
