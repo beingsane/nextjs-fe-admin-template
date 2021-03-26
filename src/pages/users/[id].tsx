@@ -1,12 +1,10 @@
 import MainContainer from '@components/layout/Main-Container';
-import { Grid, Typography, Button } from '@material-ui/core';
-import router from 'next/router';
+import { Grid, Typography} from '@material-ui/core';
 import React from 'react';
 
 class UserDetailPage extends React.Component {
 
     render() {
-
         return (
             <MainContainer>
                 <Grid container>
