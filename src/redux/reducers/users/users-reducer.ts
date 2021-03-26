@@ -24,7 +24,10 @@ const usersReducer = (state = initialState.users, action: ActionPayloadType): ty
       ...state
     };
   case FETCH_USER_LIST_SUCCESS:  
-    return [...action.payload.data];
+    return {
+      ...state,
+      data: action.payload.data
+    }
   default:
     return state;
   }

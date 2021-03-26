@@ -3,7 +3,9 @@ const INITIALSTATE = {
   projectDetail: {
     name: ''
   },
-  users: []
+  users: {
+    data: []
+  }
 };
 
 export default INITIALSTATE;

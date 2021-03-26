@@ -10,6 +10,7 @@ import { Dispatch } from 'redux';
     try {
       const res = await axios.get('https://nextjs-fe-admin.azurewebsites.net/api/users');
       console.log(res);
+      debugger;
       dispatch({
         type: actionTypes.FETCH_USER_LIST_SUCCESS,
         payload: {

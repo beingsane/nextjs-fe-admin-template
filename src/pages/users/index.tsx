@@ -10,19 +10,21 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import DataGridContainer, { DataGridColumn } from '@components/common/datagrid/DataGrid-Container';
 import UserModelType from '@typescript/types/app/models/User-Model-Type';
+import UserList from '@components/users/User-List';
 
 /**
  * @interface PageProps Page`s props interface.
  */
 interface PageProps {
-  users: []
+  users: [],
+  fetchUserList(): void;
 }
 
 /**
  * @function UserPage User page component.
  * @returns JSX markup for listing collection of users.
  */
-const UserPage: NextPage<PageProps> = ({ users }) => {
+const UserPage: NextPage<PageProps> = ({ users, fetchUserList }) => {
   const { t } = useTranslation(['userspage']);
   const columns: DataGridColumn<UserModelType>[] = [
     {
@@ -36,6 +38,25 @@ const UserPage: NextPage<PageProps> = ({ users }) => {
       visible: true,
     },
   ];
+
+  useEffect(() => {
+    fetchUserList();
+  }, [users]);
+
+  useEffect(() => {
+    fetchUserList();
+  },[]);
+
+
+  useEffect(() => {
+    return () => {
+      console.log("cleaned up");
+
+      fetchUserList();
+      
+    };
+  }, []);
+
 
   return (
     <MainContainer>
@@ -53,12 +74,8 @@ const UserPage: NextPage<PageProps> = ({ users }) => {
       </Grid>
       <Grid container>
         <Grid item>
-          <DataGridContainer
-            data={users}
-            columns={columns}
-            load={() => Promise.resolve(users)}
-            
-          />
+          <UserList users={users} />
+          {users.length}
         </Grid>
       </Grid>
     </MainContainer>
@@ -73,11 +90,13 @@ const getServerSideProps = wrapper.getServerSideProps(
     ctx.store.dispatch(fetchUserList());
     return {
       props: {
-        users: ctx.store.getState().users
+        users: ctx.store.getState().users.data
       }
     }
   }
 );
 
-export default connect((state) => state.users, null)(UserPage);
+
+
+export default connect((state) => state.users, {fetchUserList})(UserPage);
 export { getServerSideProps };
