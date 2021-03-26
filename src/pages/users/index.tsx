@@ -46,7 +46,7 @@ class UserPage extends React.Component<IProps, any> {
 
   static async getInitialProps({ Component, ctx }) {
 
-    const res = await axios.get('http://localhost:3000/api/users');
+    const res = await axios.get('https://nextjs-fe-admin.azurewebsites.net/api/users');
     const { data } = res;
 
     return {
