@@ -8,8 +8,6 @@ import { ThemeProvider } from 'styled-components';
 import { appWithTranslation } from 'src/i18n';
 import theme from '../theme';
 import { Provider } from 'react-redux';
-import { fetchProjectDetail } from '@redux/actions/project-detail/project-detail-actions';
-import { wrapper, initStore, store } from '@redux/store';
 import withRedux from "next-redux-wrapper";
 
 /**
@@ -52,7 +50,6 @@ class StartupApp extends App {
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
         </Head>
-        <Provider store={store}>
           <StylesProvider injectFirst>
             <ThemeProvider theme={theme}>
               <CssBaseline />
@@ -60,13 +57,11 @@ class StartupApp extends App {
               <Component {...pageProps} />
             </ThemeProvider>
           </StylesProvider>
-        </Provider>
       </>
     );
   }
 }
 
-//makeStore function that returns a new store for every request
-const makeStore = () => store;
 
-export default withRedux(makeStore)(appWithTranslation(StartupApp));
+
+export default (appWithTranslation(StartupApp));
