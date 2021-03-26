@@ -8,7 +8,7 @@ import { Dispatch } from 'redux';
  */
  export const fetchUserList: any = () => async (dispatch: Dispatch): Promise<void> => {
     try {
-      const res = await axios.get('http://localhost:3000/api/users');
+      const res = await axios.get('https://nextjs-fe-admin.azurewebsites.net/api/users');
       console.log(res);
       dispatch({
         type: actionTypes.FETCH_USER_LIST_SUCCESS,
