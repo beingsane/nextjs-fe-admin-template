@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as actionTypes from '@redux/actionTypes';
 import { Dispatch } from 'redux';
 
@@ -7,15 +8,17 @@ import { Dispatch } from 'redux';
  */
 export const fetchProjectDetail: any = () => async (dispatch: Dispatch): Promise<void> => {
   try {
+    const res = await axios.get('http://localhost:3000/api/projectdetail');
     dispatch({
       type: actionTypes.FETCH_PROJECT_DETAIL_SUCCESS,
       payload: {
         data: {
-          name: 'Nextjs-Admin-Fe-template'
+          name: res.data.name
         }
       }
     });
-  } catch {
+  } catch(err) {
+    console.log(err);
     dispatch({
       type: actionTypes.FETCH_PROJECT_DETAIL_FAIL
     });

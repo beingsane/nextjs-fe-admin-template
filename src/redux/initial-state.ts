@@ -1,8 +1,9 @@
 // Initial state of Redux store.
 const INITIALSTATE = {
   projectDetail: {
-    name: 'Testik'
-  }
+    name: ''
+  },
+  users: []
 };
 
 export default INITIALSTATE;

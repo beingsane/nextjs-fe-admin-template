@@ -7,8 +7,10 @@ import { StylesProvider } from '@material-ui/core/styles';
 import { ThemeProvider } from 'styled-components';
 import { appWithTranslation } from 'src/i18n';
 import theme from '../theme';
-import { wrapper } from '../redux/store';
+import { Provider } from 'react-redux';
 import { fetchProjectDetail } from '@redux/actions/project-detail/project-detail-actions';
+import { wrapper, initStore, store } from '@redux/store';
+import withRedux from "next-redux-wrapper";
 
 /**
  * @class StartupApp Configuration component that is called for each page component.
@@ -22,7 +24,7 @@ class StartupApp extends App {
    */
   static async getInitialProps({ Component, ctx }) {
 
-    ctx.store.dispatch(fetchProjectDetail());
+    //ctx.store.dispatch(fetchProjectDetail());
 
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
@@ -50,16 +52,21 @@ class StartupApp extends App {
             content="minimum-scale=1, initial-scale=1, width=device-width"
           />
         </Head>
-        <StylesProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <GlobalStyle />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </StylesProvider>
+        <Provider store={store}>
+          <StylesProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <GlobalStyle />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </StylesProvider>
+        </Provider>
       </>
     );
   }
 }
 
-export default wrapper.withRedux(appWithTranslation(StartupApp));
+//makeStore function that returns a new store for every request
+const makeStore = () => store;
+
+export default withRedux(makeStore)(appWithTranslation(StartupApp));

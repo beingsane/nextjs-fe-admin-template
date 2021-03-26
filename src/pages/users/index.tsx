@@ -1,36 +1,64 @@
 import MainContainer from '@components/layout/Main-Container';
-import { Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { NextPage } from 'next';
 import { useTranslation } from 'src/i18n';
 import { wrapper } from '@redux/store';
 import { connect } from 'react-redux';
+import { fetchProjectDetail } from '@redux/actions/project-detail/project-detail-actions';
+import { fetchUserList } from '@redux/actions/users/users-listing-actions';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import DataGridContainer, { DataGridColumn } from '@components/common/datagrid/DataGrid-Container';
+import UserModelType from '@typescript/types/app/models/User-Model-Type';
 
 /**
  * @interface PageProps Page`s props interface.
  */
 interface PageProps {
-  projectName: string;
+  users: []
 }
 
 /**
  * @function UserPage User page component.
  * @returns JSX markup for listing collection of users.
  */
-const UserPage: NextPage<PageProps> = ({ projectName }) => {
+const UserPage: NextPage<PageProps> = ({ users }) => {
   const { t } = useTranslation(['userspage']);
+  const columns: DataGridColumn<UserModelType>[] = [
+    {
+      name: 'firstName',
+      width: 300,
+      visible: true,
+    },
+    {
+      name: 'surname',
+      width: 300,
+      visible: true,
+    },
+  ];
+
   return (
     <MainContainer>
-      <Grid container>
-        <Grid item xs={12} sm={12}>
-
-        <Typography component="h1" variant="h4">
-            {projectName}
-          </Typography>
-
+        <Grid container>
+        <Grid item xs={10}>
           <Typography component="h1" variant="h5">
-            <p> {t('pagetitle')}</p>
+            Users
           </Typography>
-
+        </Grid>
+        <Grid item xs={2} style={{ textAlign: 'right' }}>
+          <Button variant="contained" color="primary">
+            Create new
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item>
+          <DataGridContainer
+            data={users}
+            columns={columns}
+            load={() => Promise.resolve(users)}
+            
+          />
         </Grid>
       </Grid>
     </MainContainer>
@@ -41,14 +69,15 @@ const UserPage: NextPage<PageProps> = ({ projectName }) => {
  * @function getServerSideProps Redux initial data processing.
  */
 const getServerSideProps = wrapper.getServerSideProps( 
-  async (context) => {
+  async (ctx) => {
+    ctx.store.dispatch(fetchUserList());
     return {
       props: {
-        projectName: context.store.getState().projectDetail.name
+        users: ctx.store.getState().users
       }
     }
   }
 );
 
-export default connect((state) => state.projectDetail, null)(UserPage);
+export default connect((state) => state.users, null)(UserPage);
 export { getServerSideProps };
