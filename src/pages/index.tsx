@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPosts } from '@redux/actions/foo-actions';
+import { getProjectDetail, getPosts } from '@redux/actions/foo-actions';
 import { wrapper } from '@redux/index';
 import Layout from '@components/Layout';
 import { checkServerSideCookie } from '@redux/actions/auth-actions';
@@ -16,9 +16,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
     checkServerSideCookie(context);
     const { token } = context.store.getState().authentication;
     await context.store.dispatch(getPosts());
+    await context.store.dispatch(getProjectDetail());
     return {
       props: {
         foo: context.store.getState().foo,
+        projectDetail: context.store.getState().projectDetail,
         token
       }
     };
