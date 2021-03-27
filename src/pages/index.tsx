@@ -4,9 +4,8 @@ import { wrapper } from '@redux/index';
 import Layout from '@components/Layout';
 import { checkServerSideCookie } from '@redux/actions/auth-actions';
 
-const Index = ({ foo, token }) => (
+const Index = ({ token }) => (
   <Layout isAuthenticated={token}>
-    <div>{JSON.stringify(foo)}</div>
     <div>Prop from getServerSideProps</div>
   </Layout>
 );
@@ -14,14 +13,11 @@ const Index = ({ foo, token }) => (
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
     checkServerSideCookie(context);
-    const { token } = context.store.getState().authentication;
     await context.store.dispatch(getPosts());
     await context.store.dispatch(getProjectDetail());
     return {
       props: {
-        foo: context.store.getState().foo,
-        projectDetail: context.store.getState().projectDetail,
-        token
+        projectDetail: context.store.getState().projectDetail
       }
     };
   }

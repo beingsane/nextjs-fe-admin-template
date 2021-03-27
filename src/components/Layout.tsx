@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
+import HeaderTitle from './skeleton/header/title/Header-Title';
 import { deauthenticate, reauthenticate } from '../redux/actions/auth-actions';
 
 const Layout = ({ children, isAuthenticated }) => {
@@ -15,6 +16,7 @@ const Layout = ({ children, isAuthenticated }) => {
     <>
       <div>
         <div>
+          <HeaderTitle />
           <ul>
             <li>
               <Link href="/">
