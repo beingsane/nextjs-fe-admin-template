@@ -3,29 +3,33 @@
  * @param req Incoming request object.
  * @param res Response request object.
  */
- function handler(req, res) {
-    res.status(200).json({
-        users: [
-            {
-                firstName: 'Patrik',
-                surname: 'Duch'
-            },
+function handler(req, res) {
+  res.status(200).json({
+    users: [
+      {
+        id: 1,
+        firstName: 'Patrik',
+        surname: 'Duch'
+      },
 
-            {
-                firstName: 'Jakub',
-                surname: 'Beránek'
-            },
-            {
-                firstName: 'Jakub',
-                surname: 'Mazur'
-            },
+      {
+        id: 2,
+        firstName: 'Jakub',
+        surname: 'Beránek'
+      },
+      {
+        id: 3,
+        firstName: 'Jakub',
+        surname: 'Mazur'
+      },
 
-            {
-                firstName: 'Tomáš',
-                surname: 'Silber'
-            }
-        ]
-    });
+      {
+        id: 4,
+        firstName: 'Tomáš',
+        surname: 'Silber'
+      }
+    ]
+  });
 }
 
 export default handler;

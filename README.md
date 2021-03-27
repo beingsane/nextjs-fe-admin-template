@@ -25,6 +25,13 @@ docker run -p 80:80 nextjs-fe-admin-template
 </ul>
 
 
+## environment
+
+<ul>
+    <li>cross-env development (JS library for multiple environment setup.)</li>
+</ul>
+
+
 ## state management
 
 <ul>

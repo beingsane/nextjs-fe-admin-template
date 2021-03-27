@@ -4,11 +4,11 @@
  * @param res Response request object.
  */
 function handler(req, res) {
-    if (req.method === 'GET') {
-        res.status(200).json({
-            name: 'Patrik Duch'
-        });
-    }
+  if (req.method === 'GET') {
+    res.status(200).json({
+      name: 'Patrik Duch'
+    });
+  }
 }
 
 export default handler;
