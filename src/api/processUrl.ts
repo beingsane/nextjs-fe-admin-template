@@ -3,7 +3,7 @@
  * @param url => Generate the correct API url for production and development environment.
  * @param isExternal
  */
-const processUrl = (url: string, isExternal: boolean) => {
+const processUrl = (url: string, isExternal: boolean): string => {
   if (!isExternal) {
     return `${process.env.API_HOST}${url}`;
   } else {
