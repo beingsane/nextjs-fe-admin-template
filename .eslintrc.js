@@ -43,6 +43,7 @@ module.exports = {
     'import/named': 'off',
     'import/prefer-default-export': 'off',
     'eol-last': ['error', 'never'],
+    'no-debugger': 'off',
     'no-plusplus': 'off',
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'no-use-before-define': 'off',

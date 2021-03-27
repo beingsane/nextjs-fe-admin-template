@@ -1,18 +1,18 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import initialState from '@redux/initial-state';
-import { FETCH_PROJECT_DETAIL_SUCCESS } from '../action-types';
+import { FETCH_USERS_SUCCESS } from '../action-types';
 
-const reducer = (state = initialState.projectDetail, action) => {
+const reducer = (state = initialState.users, action) => {
   switch (action.type) {
   case HYDRATE:
     return {
       ...state,
       ...action.payload
     };
-  case FETCH_PROJECT_DETAIL_SUCCESS:
+  case FETCH_USERS_SUCCESS:
     return {
       ...state,
-      name: action.payload.name
+      data: action.payload
     };
   default:
     return state;

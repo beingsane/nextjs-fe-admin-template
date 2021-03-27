@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cross-env API_HOST=http://localhost:3000 next dev",
+    "build": "cross-env API_HOST=https://nextjs-fe-admin.azurewebsites.net next build",
     "start": "next start -p 80",
     "lint": "eslint --fix .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -36,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "babel-plugin-module-resolver": "^4.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",

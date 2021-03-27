@@ -20,6 +20,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@api": [
+        "./src/api/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],

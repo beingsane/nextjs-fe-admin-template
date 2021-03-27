@@ -7,20 +7,24 @@ function handler(req, res) {
   res.status(200).json({
     users: [
       {
+        id: 1,
         firstName: 'Patrik',
         surname: 'Duch'
       },
 
       {
+        id: 2,
         firstName: 'Jakub',
         surname: 'Beránek'
       },
       {
+        id: 3,
         firstName: 'Jakub',
         surname: 'Mazur'
       },
 
       {
+        id: 4,
         firstName: 'Tomáš',
         surname: 'Silber'
       }
