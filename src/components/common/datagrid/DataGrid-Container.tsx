@@ -26,7 +26,6 @@ import {
 } from '@devexpress/dx-react-grid';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-// import CustomScroll from 'react-custom-scroll';
 
 export enum DataGridColumnType {}
 

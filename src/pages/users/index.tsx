@@ -2,28 +2,22 @@ import MainContainer from '@components/layout/Main-Container';
 import { Button, Grid, Typography } from '@material-ui/core';
 import UserModelType from '@typescript/types/app/models/User-Model-Type';
 import { wrapper } from '@redux/index';
-import React, { useEffect } from 'react';
 import { getUsers } from '@redux/actions/user-listing-actions';
 import DataGridContainer, { DataGridColumn } from '@components/common/datagrid/DataGrid-Container';
 import { useRouter } from 'next/router';
-import { getDetails } from '../../api/endpoints/Project-Detail-API';
 
+/**
+ * @interface IProps Page`s props interface.
+ */
 interface IProps {
   users: UserModelType[]
 }
 
+/**
+ * @function UserPage Page component for user management.
+ */
 const UserPage: React.FC<IProps> = ({ users }) => {
   const router = useRouter();
-
-  const fetchDetails = async() => {
-    const test = await getDetails();
-    debugger;
-    console.log(test);
-  };
-
-  useEffect(() => {
-    fetchDetails();
-  });
 
   const columns: DataGridColumn<UserModelType>[] = [
     {
@@ -73,6 +67,9 @@ const UserPage: React.FC<IProps> = ({ users }) => {
   );
 };
 
+/**
+ * @function getServerSideProps SSR preprocessing of Userpage root component.
+ */
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
     await context.store.dispatch(getUsers());
