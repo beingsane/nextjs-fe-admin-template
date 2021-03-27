@@ -1,8 +1,8 @@
 import React from 'react';
-import { getPosts } from '@redux/actions/foo-actions';
-import { wrapper } from '@redux/index';
-import Layout from '@components/Layout';
-import { checkServerSideCookie } from '@redux/actions/auth-actions';
+import { getPosts } from '../redux/actions/foo-actions';
+import { wrapper } from '../redux';
+import Layout from '../components/Layout';
+import { checkServerSideCookie } from '../redux/actions/auth-actions';
 
 const Index = ({ foo, token }) => (
   <Layout isAuthenticated={token}>
@@ -16,6 +16,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     checkServerSideCookie(context);
     const { token } = context.store.getState().authentication;
     await context.store.dispatch(getPosts());
+    console.log(context.store.getState().foo);
     return {
       props: {
         foo: context.store.getState().foo,

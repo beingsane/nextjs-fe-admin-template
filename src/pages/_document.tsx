@@ -30,8 +30,7 @@ MyDocument.getInitialProps = async (ctx) => {
           styledComponentSheet.collectStyles(materialUiSheets.collect(<App {...props} />))
       });
 
-
-   const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
       styles: [

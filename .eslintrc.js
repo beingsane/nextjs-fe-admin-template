@@ -47,6 +47,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'no-use-before-define': 'off',
     'no-restricted-syntax': 'off',
+    '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-empty-interface': 'off',
     'no-underscore-dangle': 'off',
     'object-curly-spacing': ['error', 'always', { arraysInObjects: false }],
