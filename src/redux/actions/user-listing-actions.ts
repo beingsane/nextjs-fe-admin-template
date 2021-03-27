@@ -1,8 +1,4 @@
-import axios from 'axios';
 import { FETCH_USERS_SUCCESS } from '../action-types';
+import { getUserList } from '../../api/endpoints/User-API';
 
-export const getUsers: any = () => (dispatch) => axios({
-  method: 'GET',
-  url: 'http://localhost:3000/api/users',
-  headers: []
-}).then((response) => dispatch({ type: FETCH_USERS_SUCCESS, payload: response.data.users }));
+export const getUsers: any = () => (dispatch) => getUserList().then((response) => dispatch({ type: FETCH_USERS_SUCCESS, payload: response.data.users }));
