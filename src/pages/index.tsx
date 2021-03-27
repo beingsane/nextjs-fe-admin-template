@@ -1,13 +1,20 @@
 import React from 'react';
 import { getProjectDetail, getPosts } from '@redux/actions/foo-actions';
 import { wrapper } from '@redux/index';
-import Layout from '@components/Layout';
 import { checkServerSideCookie } from '@redux/actions/auth-actions';
+import MainContainer from '@components/layout/Main-Container';
+import { Grid, Typography } from '@material-ui/core';
 
-const Index = ({ token }) => (
-  <Layout isAuthenticated={token}>
-    <div>Prop from getServerSideProps</div>
-  </Layout>
+const IndexPage = () => (
+  <MainContainer>
+    <Grid container>
+      <Grid item xs={10}>
+        <Typography component="h1" variant="h5">
+          Dashboard
+        </Typography>
+      </Grid>
+    </Grid>
+  </MainContainer>
 );
 
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -23,4 +30,4 @@ export const getServerSideProps = wrapper.getServerSideProps(
   }
 );
 
-export default Index;
+export default IndexPage;
