@@ -43,7 +43,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "next-env.d.ts",
+    "src/typescript/typings/next-env.d.ts",
     "next.config.js"
   ]
 }
