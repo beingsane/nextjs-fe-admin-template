@@ -55,9 +55,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'import/no-useless-path-segments': ['error', { commonjs: true }],
-    'arrow-body-style': ['error', 'as-needed', {
-      requireReturnForObjectLiteral: false
-    }],
+    'arrow-body-style': ['error', 'always'],
     'object-shorthand': ['error', 'always', {
       ignoreConstructors: false,
       avoidQuotes: true

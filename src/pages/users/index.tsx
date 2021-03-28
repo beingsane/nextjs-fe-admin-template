@@ -2,9 +2,10 @@ import MainContainer from '@components/layout/Main-Container';
 import { Button, Grid, Typography } from '@material-ui/core';
 import UserModelType from '@typescript/types/app/models/User-Model-Type';
 import { wrapper } from '@redux/index';
-import { getUsers } from '@redux/actions/user-listing-actions';
+import { getUsers } from '@redux/actions/users';
 import DataGridContainer, { DataGridColumn } from '@components/common/datagrid/DataGrid-Container';
 import { useRouter } from 'next/router';
+import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 
 /**
  * @interface IProps Page`s props interface.
@@ -58,8 +59,8 @@ const UserPage: React.FC<IProps> = ({ users }) => {
           <DataGridContainer
             data={users}
             columns={columns}
-            load={() => Promise.resolve(users)}
-            onRowClick={(row) => router.push(`/users/${row.id}`)}
+            load={() => { return Promise.resolve(users); }}
+            onRowClick={(row) => { return router.push(`/users/${row.id}`); }}
           />
         </Grid>
       </Grid>
@@ -68,11 +69,13 @@ const UserPage: React.FC<IProps> = ({ users }) => {
 };
 
 /**
- * @function getServerSideProps SSR preprocessing of Userpage root component.
+ * @function getServerSideProps SSR preprocessing of Userpage component.
  */
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    await context.store.dispatch(getUsers());
+    const { store } = context;
+    await (store as StoreTypeObj).dispatch(getUsers());
+
     return {
       props: {
         users: context.store.getState().users.data

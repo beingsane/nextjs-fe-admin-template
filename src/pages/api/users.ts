@@ -1,9 +1,10 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
 /**
  * @function handler API handler for accessing list of users.
  * @param req Incoming request object.
  * @param res Response request object.
  */
-function handler(req, res) {
+function handler(req: NextApiRequest, res: NextApiResponse): void {
   res.status(200).json({
     users: [
       {

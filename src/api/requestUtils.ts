@@ -6,7 +6,7 @@ import processUrl from './processUrl';
  * @param url  => REST API endpoint.
  * @param isExternal => Is request outside of project domain?
  */
-export const sendGet = (url: string, isExternal: boolean): Promise<AxiosResponse<any>> => {
+export const sendGet = <T>(url: string, isExternal: boolean): Promise<AxiosResponse<T>> => {
   if (!isExternal) {
     return axios.get(processUrl(url, isExternal));
   } else {

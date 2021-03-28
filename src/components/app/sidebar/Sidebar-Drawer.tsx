@@ -2,7 +2,7 @@ import { Drawer } from '@material-ui/core';
 import styled, { css } from 'styled-components';
 
 const SidebarDrawer = styled(Drawer)`
-  z-index: ${({ theme }) => theme.zIndex.drawer};
+  z-index: ${({ theme }) => { return theme.zIndex.drawer; }};
 
   overflow: hidden;
   width: 75px;
@@ -12,14 +12,15 @@ const SidebarDrawer = styled(Drawer)`
   left: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 
-  transition: ${({ theme }) =>
-    theme.transitions.create('width', {
+  transition: ${({ theme }) => {
+    return theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })};
+    });
+  }};
 
-  ${({ open, theme }) =>
-    open &&
+  ${({ open, theme }) => {
+    return open &&
         css`
       width: 240px;
 
@@ -27,7 +28,8 @@ const SidebarDrawer = styled(Drawer)`
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen
   })};
-    `}
+    `;
+  }}
 `;
 
 export default SidebarDrawer;

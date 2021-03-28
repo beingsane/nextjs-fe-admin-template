@@ -13,11 +13,13 @@ interface IProps extends IStyledComponentProps {
  * @param children Content node that is placed inside this common component.
  * @param className Generated classname via "styled-components" library.
  */
-const MainLayout: React.FC<IProps> = ({ children, className }) => (
-  <main className={className}>
-    {children}
-  </main>
-);
+const MainLayout: React.FC<IProps> = ({ children, className }) => {
+  return (
+    <main className={className}>
+      {children}
+    </main>
+  );
+};
 
 export default styled(MainLayout)`
 
@@ -25,15 +27,17 @@ margin-top: 64px;
   margin-left: 75px;
   padding: 30px;
 
-  transition: ${({ theme }) =>
-    theme.transitions.create(['width', 'margin'], {
+  transition: ${({ theme }) => {
+    return theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
-    })};
+    });
+  }};
 
-  ${({ open }) =>
-    open &&
+  ${({ open }) => {
+    return open &&
         css`
       margin-left: 240px;
-    `}
+    `;
+  }}
 `;

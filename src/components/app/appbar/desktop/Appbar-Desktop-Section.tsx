@@ -11,17 +11,19 @@ interface IProps extends IStyledComponentProps { }
  * @param children Content node that is placed inside this common component.
  * @param className Generated classname via "styled-components" library.
  */
-const AppbarDesktopSection: React.FC<IProps> = ({ children, className }) => (
-  <section className={className}>
-    { children}
-  </section>
-);
+const AppbarDesktopSection: React.FC<IProps> = ({ children, className }) => {
+  return (
+    <section className={className}>
+      { children}
+    </section>
+  );
+};
 
 export default styled(AppbarDesktopSection)`
 
     display: none;
 
-    ${({ theme }) => theme.breakpoints.up('sm')} {
+    ${({ theme }) => { return theme.breakpoints.up('sm'); }} {
         display: flex;
     }
 `;

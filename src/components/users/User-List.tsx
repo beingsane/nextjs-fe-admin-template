@@ -5,6 +5,6 @@ interface IProps {
     users: UserModelType[]
 }
 
-const UserList: React.FC<IProps> = ({ users }) => <div>{users.length}</div>;
+const UserList: React.FC<IProps> = ({ users }) => { return <div>{users.length}</div>; };
 
 export default UserList;

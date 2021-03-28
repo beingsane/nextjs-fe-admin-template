@@ -11,11 +11,13 @@ interface IProps extends IStyledComponentProps { }
  * @param children Content node that is placed inside this common component.
  * @param className Generated classname via "styled-components" library.
  */
-const LanguageChooserContainer: React.FC<IProps> = ({ children, className }) => (
-  <div className={className}>
-    { children}
-  </div>
-);
+const LanguageChooserContainer: React.FC<IProps> = ({ children, className }) => {
+  return (
+    <div className={className}>
+      { children}
+    </div>
+  );
+};
 
 export default styled(LanguageChooserContainer)`
     margin-top: 0.5vh;

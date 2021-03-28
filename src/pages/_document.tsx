@@ -24,11 +24,13 @@ MyDocument.getInitialProps = async (ctx) => {
   const materialUiSheets = new MaterialUiServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
   try {
-    ctx.renderPage = () =>
-      originalRenderPage({
-        enhanceApp: (App) => (props) =>
-          styledComponentSheet.collectStyles(materialUiSheets.collect(<App {...props} />))
+    ctx.renderPage = () => {
+      return originalRenderPage({
+        enhanceApp: (App) => {
+          return (props) => { return styledComponentSheet.collectStyles(materialUiSheets.collect(<App {...props} />)); };
+        }
       });
+    };
 
     const initialProps = await Document.getInitialProps(ctx);
     return {

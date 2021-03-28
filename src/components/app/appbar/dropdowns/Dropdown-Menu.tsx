@@ -39,8 +39,8 @@ const AppbarDropdownMenu: React.FC<IProps> = ({ anchorEl, isMenuOpen, handleMenu
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => router.push('/profile')}>{t('profile_dropdown_url')}</MenuItem>
-      <MenuItem onClick={() => console.log('TODO: Logout functionality')}>{t('logout_dropdown_url')}</MenuItem>
+      <MenuItem onClick={() => { return router.push('/profile'); }}>{t('profile_dropdown_url')}</MenuItem>
+      <MenuItem onClick={() => { return console.log('TODO: Logout functionality'); }}>{t('logout_dropdown_url')}</MenuItem>
     </StyledDropdownMenu>
   );
 };

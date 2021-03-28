@@ -11,17 +11,19 @@ interface IProps extends IStyledComponentProps { }
  * @param children
  * @param className
  */
-const AppbarMobileSection: React.FC<IProps> = ({ children, className }) => (
-  <section className={className}>
-    { children}
-  </section>
-);
+const AppbarMobileSection: React.FC<IProps> = ({ children, className }) => {
+  return (
+    <section className={className}>
+      { children}
+    </section>
+  );
+};
 
 export default styled(AppbarMobileSection)`
 
     display: flex;
 
-    ${({ theme }) => theme.breakpoints.up('sm')} {
+    ${({ theme }) => { return theme.breakpoints.up('sm'); }} {
     display: none;
     }
 

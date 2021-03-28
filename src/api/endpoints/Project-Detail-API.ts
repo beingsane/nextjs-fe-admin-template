@@ -5,4 +5,4 @@ import * as requestUtils from '../requestUtils';
 /**
  * @function getDetails Fetch project details (projectName, etc.)
  */
-export const getDetails = (): Promise<AxiosResponse<ProjectDetailTypeModel>> => requestUtils.sendGet('/api/projectdetail/', false);
+export const getDetails = (): Promise<AxiosResponse<ProjectDetailTypeModel>> => { return requestUtils.sendGet('/api/projectdetail/', false); };

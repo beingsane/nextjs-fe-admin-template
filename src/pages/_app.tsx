@@ -7,28 +7,30 @@ import { appWithTranslation } from 'src/i18n';
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme';
 
-const MyApp = ({ Component, pageProps }) => (
-  <div>
-    <Head>
-      <title>Patrik Duch, Enterprise Solutions Architect</title>
-      <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      />
-      <meta
-        name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width"
-      />
-    </Head>
-    <StylesProvider injectFirst>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </StylesProvider>
-  </div>
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <div>
+      <Head>
+        <title>Patrik Duch, Enterprise Solutions Architect</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <StylesProvider injectFirst>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </StylesProvider>
+    </div>
 
-);
+  );
+};
 
 export default wrapper.withRedux(appWithTranslation(MyApp));

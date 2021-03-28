@@ -51,8 +51,7 @@ export interface CellFormatter<T extends Record<string, unknown>> {
 
 const StyledTableRow = styled(VirtualTable.Row)`
     transition: background-color 0.1s ease-out;
-    background-color: ${({ theme, tableRow }) =>
-    tableRow.rowId % 2 ? 'rgba(0, 0, 0, 0.08)' : theme.palette.background.paper};
+    background-color: ${({ theme, tableRow }) => { return tableRow.rowId % 2 ? 'rgba(0, 0, 0, 0.08)' : theme.palette.background.paper; }};
     cursor: pointer;
   
     &:hover {
@@ -113,7 +112,7 @@ function DataGridContainer<T extends Record<string, unknown>>({
       <StyledTableRow
         {...restProps}
         // eslint-disable-next-line no-alert
-        onClick={() => onRowClick(row)}
+        onClick={() => { return onRowClick(row); }}
       />
     );
   };
@@ -153,22 +152,24 @@ function DataGridContainer<T extends Record<string, unknown>>({
           setLoading(false);
           setLastQuery(queryString);
         })
-        .catch(() => setLoading(false));
+        .catch(() => { return setLoading(false); });
       setLastQuery(queryString);
     }
   };
 
-  useEffect(() => loadData(), [filters, searchValue]);
+  useEffect(() => { return loadData(); }, [filters, searchValue]);
 
   return (
     <Grid rows={rows} columns={columns}>
-      {cellFormatters?.map((formatter) => (
-        <DataTypeProvider
-          key={formatter.columnNames.join('_')}
-          formatterComponent={formatter.component}
-          for={formatter.columnNames}
-        />
-      ))}
+      {cellFormatters?.map((formatter) => {
+        return (
+          <DataTypeProvider
+            key={formatter.columnNames.join('_')}
+            formatterComponent={formatter.component}
+            for={formatter.columnNames}
+          />
+        );
+      })}
       <SelectionState selection={selection} onSelectionChange={setSelection} />
       <IntegratedSelection />
       <SearchState value={searchValue} onValueChange={setSearchValue} />
@@ -192,18 +193,22 @@ function DataGridContainer<T extends Record<string, unknown>>({
         rowComponent={TableRow}
         headComponent={StyledHead}
         columnExtensions={columns.map(
-          (column): VirtualTable.ColumnExtension => ({
-            ...column,
-            columnName: column.name
-          })
+          (column): VirtualTable.ColumnExtension => {
+            return {
+              ...column,
+              columnName: column.name
+            };
+          }
         )}
       />
       <TableColumnResizing
         columnWidths={columns.map(
-          (column): TableColumnWidthInfo => ({
-            columnName: column.name,
-            width: column.width
-          })
+          (column): TableColumnWidthInfo => {
+            return {
+              columnName: column.name,
+              width: column.width
+            };
+          }
         )}
         onColumnWidthsChange={onColumnWidthsChange}
       />
@@ -212,7 +217,7 @@ function DataGridContainer<T extends Record<string, unknown>>({
       <PagingPanel />
       <TableHeaderRow showSortingControls />
       <TableColumnVisibility
-        hiddenColumnNames={columns?.filter((column) => !column.visible)?.map((column) => column.name)}
+        hiddenColumnNames={columns?.filter((column) => { return !column.visible; })?.map((column) => { return column.name; })}
         onHiddenColumnNamesChange={onHiddenColumnNamesChange}
       />
       <TableSelection showSelectAll />

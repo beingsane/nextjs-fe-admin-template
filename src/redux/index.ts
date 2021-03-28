@@ -11,6 +11,6 @@ const bindMiddleware = (middleware) => {
   return applyMiddleware(...middleware);
 };
 
-const initStore = () => createStore(reducer, bindMiddleware([thunkMiddleware]));
+const initStore = () => { return createStore(reducer, bindMiddleware([thunkMiddleware])); };
 
 export const wrapper = createWrapper(initStore);

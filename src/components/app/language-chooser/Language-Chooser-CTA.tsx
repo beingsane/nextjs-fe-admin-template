@@ -36,7 +36,7 @@ const LanguageChooserCTA: React.FC<IProps> = ({ className, displayName, handleLa
 
   return (
     <span className={className} >
-      <Button variant={isActive ? 'contained' : null} color="primary" onClick={() => handleLanguageChange(langCode)}>{displayName.toLocaleUpperCase()}</Button>
+      <Button variant={isActive ? 'contained' : null} color="primary" onClick={() => { return handleLanguageChange(langCode); }}>{displayName.toLocaleUpperCase()}</Button>
     </span>
   );
 };
