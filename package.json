@@ -2,6 +2,7 @@
   "name": "next-js-fe-admin-template",
   "version": "1.0.0",
   "private": true,
+  "author": "Patrik Duch",
   "scripts": {
     "dev": "cross-env API_HOST=http://localhost:3000 next dev",
     "build": "cross-env API_HOST=https://nextjs-fe-admin.azurewebsites.net next build",

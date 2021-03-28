@@ -71,3 +71,8 @@ docker run -p 80:80 nextjs-fe-admin-template
     <li>jest (JS library for unit tests)</li>
     <li>Enzyme (JS library for React's component tests)</li>
 </ul>
+
+
+to run all test run command
+
+- npm run test or yarn test
