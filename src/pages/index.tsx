@@ -1,8 +1,6 @@
-import React from 'react';
 import MainContainer from '@components/layout/Main-Container';
 import { Grid, Typography } from '@material-ui/core';
 import { NextPage } from 'next';
-
 /**
  * @function IndexPage Page component for root application path.
  */
