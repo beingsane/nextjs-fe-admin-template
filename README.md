@@ -58,8 +58,16 @@ docker run -p 80:80 nextjs-fe-admin-template
 
 ## linting
 
-
 <ul>
     <li>eslint-plugin-simple-import-sort JS library</li>
 </ul>
 
+
+## Testing
+
+### Component Unit tests
+
+<ul>
+    <li>jest (JS library for unit tests)</li>
+    <li>Enzyme (JS library for React's component tests)</li>
+</ul>
