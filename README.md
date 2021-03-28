@@ -63,6 +63,11 @@ docker run -p 80:80 nextjs-fe-admin-template
 </ul>
 
 
+to execute linting process run command
+
+- npm run lint or yarn lint
+
+
 ## Testing
 
 ### Component Unit tests
