@@ -13,6 +13,7 @@ import StyledAppBar from '@components/app/appbar/Styled-Appbar';
 import StyledToolbar from '@components/app/appbar/Styled-Toolbar';
 import AppbarDropdownMenu from '@components/app/appbar/dropdowns/Dropdown-Menu';
 import AppbarDropdownMobileMenu from '@components/app/appbar/dropdowns/Dropdown-Mobile-Menu';
+import HeaderTitle from '@components/skeleton/header/title/Header-Title';
 import { Link } from '../../i18n';
 import AppbarAccountInfo from '../app/appbar/Appbar-Account-Info';
 
@@ -69,7 +70,7 @@ const TopMenuBar: React.FC = () => {
         <StyledToolbar>
           <Link href="/">
             <AppbarNavitem variant="h6" color="inherit" noWrap>
-                            Project name
+              <HeaderTitle />
             </AppbarNavitem>
           </Link>
           <AppBarDesktopSection>
