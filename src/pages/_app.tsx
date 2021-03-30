@@ -1,7 +1,6 @@
 import App, { AppContext } from 'next/app';
 import GlobalStyle from '@components/styled-components/Global-Style';
 import { StylesProvider } from '@material-ui/core';
-import { wrapper } from '@redux/index';
 import Head from 'next/head';
 import React from 'react';
 import useDidMount from 'src/hooks/dom/component.didmount.hook';
@@ -9,6 +8,9 @@ import { appWithTranslation } from 'src/i18n';
 import { ThemeProvider } from 'styled-components';
 import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 import { getProjectDetail } from '@redux/actions/project-detail';
+import { store } from '@redux/store';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 import theme from '../theme';
 
 const MyApp = ({ Component, pageProps }) => {
@@ -20,7 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
     }
   });
   return (
-    <div>
+    <Provider store={store}>
       <Head>
         <title>Patrik Duch, Enterprise Solutions Architect</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,17 +41,22 @@ const MyApp = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </ThemeProvider>
       </StylesProvider>
-    </div>
+    </Provider>
 
   );
 };
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { store } = appContext.ctx;
+  console.log('test');
+  console.log(store);
   await (store as StoreTypeObj).dispatch(getProjectDetail());
 
   const pageProps = await App.getInitialProps(appContext);
   return { pageProps };
 };
 
-export default wrapper.withRedux(appWithTranslation(MyApp));
+// makeStore function that returns a new store for every request
+const makeStore = () => { return store; };
+
+export default withRedux(makeStore)(appWithTranslation(MyApp));
