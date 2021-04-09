@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Card } from '@material-ui/core';
 import MainLayout from './Main-Layout';
 import TopMenuBar from './TopMenu-Bar';
-import LeftMenuBar from '../app/sidebar/Sidebar-Container';
+import LeftMenuBar from './sidebar/Sidebar-Container';
 
 /**
  * @interface IProps Component`s props interface.

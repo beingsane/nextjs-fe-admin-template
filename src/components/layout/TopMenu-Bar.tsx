@@ -1,6 +1,6 @@
-import AppBarDesktopSection from '@components/app/appbar/desktop/Appbar-Desktop-Section';
-import AppBarMobileSection from '@components/app/appbar/mobile/Appbar-Mobile-Section';
-import AppbarNavitem from '@components/app/appbar/Appbar-Nav-Item';
+import AppBarDesktopSection from '@components/layout/appbar/desktop/Appbar-Desktop-Section';
+import AppBarMobileSection from '@components/layout/appbar/mobile/Appbar-Mobile-Section';
+import AppbarNavitem from '@components/layout/appbar/Appbar-Nav-Item';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -9,13 +9,13 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { useState } from 'react';
 import styled from 'styled-components';
-import StyledAppBar from '@components/app/appbar/Styled-Appbar';
-import StyledToolbar from '@components/app/appbar/Styled-Toolbar';
-import AppbarDropdownMenu from '@components/app/appbar/dropdowns/Dropdown-Menu';
-import AppbarDropdownMobileMenu from '@components/app/appbar/dropdowns/Dropdown-Mobile-Menu';
+import StyledAppBar from '@components/layout/appbar/Styled-Appbar';
+import StyledToolbar from '@components/layout/appbar/Styled-Toolbar';
+import AppbarDropdownMenu from '@components/layout/appbar/dropdowns/Dropdown-Menu';
+import AppbarDropdownMobileMenu from '@components/layout/appbar/dropdowns/Dropdown-Mobile-Menu';
 import HeaderTitle from '@components/skeleton/header/title/Header-Title';
+import AppbarAccountInfo from './appbar/Appbar-Account-Info';
 import { Link } from '../../i18n';
-import AppbarAccountInfo from '../app/appbar/Appbar-Account-Info';
 
 const UserEmail = styled(Typography)`
   margin-left: 5px;

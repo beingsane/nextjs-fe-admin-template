@@ -4,7 +4,7 @@ import { getUserList } from '../../../api/endpoints/User-API';
 import ActionTypes from '../types';
 
 /**
- * @function getUsers Action creator for fetching list of users.
+ * @function getUsers Action creator for fetching list of user-management.
  */
 export const getUsers = () => {
   return async (dispatch: Dispatch): Promise<void> => {

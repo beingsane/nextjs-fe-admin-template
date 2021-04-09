@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 /**
- * @function handler API handler for accessing list of users.
+ * @function handler API handler for accessing list of user-management.
  * @param req Incoming request object.
  * @param res Response request object.
  */
