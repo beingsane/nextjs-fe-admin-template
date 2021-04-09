@@ -29,6 +29,9 @@
       "@contexts/*": [
         "./src/contexts/*"
       ],
+      "@helpers": [
+        "./src/helpers/*"
+      ],
       "@typescript/*": [
         "./src/typescript/*"
       ],

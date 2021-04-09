@@ -45,12 +45,12 @@ const UserPage: React.FC<IProps> = ({ users }) => {
       <Grid container>
         <Grid item xs={10}>
           <Typography component="h1" variant="h5">
-            Users
+              Users
           </Typography>
         </Grid>
         <Grid item xs={2} style={{ textAlign: 'right' }}>
           <Button variant="contained" color="primary">
-            Create new
+              Create new
           </Button>
         </Grid>
       </Grid>
