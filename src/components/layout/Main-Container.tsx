@@ -1,7 +1,6 @@
 import IStyledComponentProps from '@typescript/interfaces/shared/styled-components/IStyled-React-Component-Props';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Card } from '@material-ui/core';
 import MainLayout from './Main-Layout';
 import TopMenuBar from './TopMenu-Bar';
 import LeftMenuBar from './sidebar/Sidebar-Container';
@@ -25,14 +24,12 @@ const MainContainer: React.FC<IProps> = ({ children, className }) => {
   };
 
   return (
-    <Card className={className}>
+    <div className={className}>
       <TopMenuBar />
       <LeftMenuBar drawerOpen={drawerOpen} handleToggleDrawer={handleToggleDrawer} />
       <MainLayout open={drawerOpen}>{children}</MainLayout>
-    </Card>
+    </div>
   );
 };
 
-export default styled(MainContainer)`
-    display: flex;
-`;
+export default styled(MainContainer)``;

@@ -32,6 +32,9 @@
       "@helpers": [
         "./src/helpers/*"
       ],
+      "@mocks/*": [
+        "./src/_mocks/*"
+      ],
       "@typescript/*": [
         "./src/typescript/*"
       ],
