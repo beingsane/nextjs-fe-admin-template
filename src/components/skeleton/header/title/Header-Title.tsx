@@ -1,4 +1,3 @@
-import { Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 /**
@@ -15,9 +14,9 @@ interface IProps {
  */
 const HeaderTitle: React.FC<IProps> = ({ projectDetail }) => {
   return (
-    <Typography component='h1' variant='h6'>
+    <span>
       { projectDetail.name }
-    </Typography>
+    </span>
   );
 };
 
