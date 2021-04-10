@@ -2,6 +2,7 @@ import React from 'react';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Button, FormControl, Grid, Input, InputLabel } from '@material-ui/core';
+import ErrorFormInput from '@components/common/forms/Error-Form-Input';
 
 /**
  * @function UserLoginForm Form for login functionality.
@@ -16,8 +17,8 @@ const UserLoginForm: React.FC = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: yup.object().shape({
-      emailField: yup.string().required(),
-      passwordField: yup.string().required()
+      emailField: yup.string().required('Email must be filled.'),
+      passwordField: yup.string().required('Password must be filled.')
     }),
 
     onSubmit: async values => {
@@ -25,10 +26,6 @@ const UserLoginForm: React.FC = () => {
       debugger;
     }
   });
-
-  // console.log('Form values', formik.values);
-
-  console.log('Form errors', formik.errors);
 
   return (
     <form onSubmit={ formik.handleSubmit }>
@@ -38,28 +35,33 @@ const UserLoginForm: React.FC = () => {
             <InputLabel htmlFor="emailField">Email address</InputLabel>
             <Input
               type='text'
-              id="emailField"
+              id='emailField'
+              name='emailField'
               onChange={ formik.handleChange }
+              onBlur={ formik.handleBlur }
               value={ formik.values.emailField }
-              error={!!formik.errors.emailField}
+              error={ !!formik.errors.emailField && !!formik.touched.emailField }
             />
-
-            {
-              formik.errors.emailField ? <div>{ formik.errors.emailField }</div> : null
-            }
-
+            <ErrorFormInput isToggled={!!formik.errors.emailField && !!formik.touched.emailField} message={formik.errors.emailField} />
           </FormControl>
         </Grid>
+
         <Grid item xs={10}>
           <FormControl>
-            <InputLabel htmlFor="password-input">Password</InputLabel>
-            <Input type='text' id="passwordField" onChange={ formik.handleChange } value={ formik.values.passwordField } error={!!formik.errors.passwordField} />
-
-            {
-              formik.errors.passwordField ? <div>{ formik.errors.passwordField }</div> : null
-            }
+            <InputLabel htmlFor="emailField">Password</InputLabel>
+            <Input
+              type='text'
+              id='passwordField'
+              name='passwordField'
+              onChange={ formik.handleChange }
+              onBlur={ formik.handleBlur }
+              value={ formik.values.passwordField }
+              error={ !!formik.errors.passwordField && !!formik.touched.passwordField }
+            />
+            <ErrorFormInput isToggled={!!formik.errors.passwordField && !!formik.touched.passwordField } message={formik.errors.passwordField} />
           </FormControl>
         </Grid>
+
         <Grid item xs={10}>
           <Button variant="contained" color="primary" type="submit">Log-in</Button>
         </Grid>

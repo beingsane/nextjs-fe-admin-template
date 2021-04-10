@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
 import MainContainer from '@components/layout/Main-Container';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import UserLoginForm from '@components/app/user-management/login/User-Login-Form';
+import UserLoginHeading from '@components/app/user-management/login/User-Login-Heading';
 
 /**
  * @function LoginPage Page component for login into system.
@@ -10,12 +11,7 @@ const LoginPage: NextPage = () => {
   return (
     <MainContainer>
       <Grid container>
-        <Grid item xs={10}>
-          <Typography component="h1" variant="h5">
-                      Login
-          </Typography>
-        </Grid>
-
+        <UserLoginHeading />
         <Grid item xs={10}>
           <UserLoginForm />
         </Grid>
