@@ -4,7 +4,8 @@ import { wrapper } from '@redux/index';
 import { getUsers } from '@redux/actions/users';
 import StoreTypeObj from '@typescript/types/shared/redux/thunk/Store-Type';
 import UserDataGridList from '@components/app/user-management/user-list/User-DataGrid-List';
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import UserListHeading from '@components/app/user-management/user-list/User-List-Heading';
 
 /**
  * @interface IProps Page`s props interface.
@@ -20,17 +21,7 @@ const UserPage: React.FC<IProps> = ({ users }) => {
   return (
     <MainContainer>
       <Grid container>
-        <Grid item xs={10}>
-          <Typography component="h1" variant="h5">
-                          Uživatelé
-          </Typography>
-
-          <Grid item xs={2} style={{ textAlign: 'right', marginLeft: '3.8vw', marginTop: '0.5vh' }}>
-            <Button variant="contained" color="primary">
-                    Create new
-            </Button>
-          </Grid>
-        </Grid>
+        <UserListHeading />
         <Grid item xs={10}>
           <UserDataGridList users={users} />
         </Grid>
