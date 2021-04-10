@@ -43,6 +43,13 @@ docker run -p 80:80 nextjs-fe-admin-template
 </ul>
 
 
+## form management
+
+<ul>
+    <li>formik</li>
+    <li>yup</li>
+</ul>
+
 ## cookie management
 
 <ul>
