@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import UserModelType from '@typescript/types/app/models/User-Model-Type';
 import styled from 'styled-components';
 import IStyledComponentProps from '@typescript/interfaces/shared/styled-components/IStyled-React-Component-Props';
+import { useRouter } from 'next/router';
 
 const columns = [
   { field: 'id', headerName: 'Id', width: 150 },
@@ -23,11 +24,20 @@ interface IProps extends IStyledComponentProps {
  * @param users Fetched users that were passed into this component for rendering purposes.
  */
 const UserDataGridList: React.FC<IProps> = ({ className, users }) => {
+  const router = useRouter();
+
   return (
     <div className={className}>
       <DataGrid
-        rows={users} columns={columns} pageSize={5}
-        checkboxSelection autoHeight={true} showCellRightBorder={false} />
+        onRowClick={(param) => {
+          router.push(`users/${param.row.id}`);
+        }}
+        rows={users}
+        columns={columns}
+        pageSize={5}
+        checkboxSelection={false} autoHeight={true}
+
+      />
     </div>
   );
 };
