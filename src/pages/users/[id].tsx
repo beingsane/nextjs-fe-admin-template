@@ -1,6 +1,7 @@
 import MainContainer from '@components/layout/Main-Container';
-import { Button, Grid, Typography } from '@material-ui/core';
 import { NextPage } from 'next';
+import UserDetailHeading from '@components/app/user-management/user-detail/User-Detail-Heading';
+import UserDetailContent from '@components/app/user-management/user-detail/User-Detail-Content';
 
 /**
  * @function UserDetailPage Page component for displaying detail information of particular user.
@@ -8,15 +9,8 @@ import { NextPage } from 'next';
 const UserDetailPage: NextPage = () => {
   return (
     <MainContainer>
-      <Button>Go back</Button>
-      <hr></hr>
-      <Grid container>
-        <Grid item xs={12}>
-          <Typography component="h1" variant="h5">
-          User detail
-          </Typography>
-        </Grid>
-      </Grid>
+      <UserDetailHeading />
+      <UserDetailContent />
     </MainContainer>
   );
 };
