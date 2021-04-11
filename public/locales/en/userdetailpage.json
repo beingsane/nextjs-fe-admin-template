@@ -1,0 +1,28 @@
+
+{
+  "pagetitle": "User detail",
+  "first_name": "First name",
+  "surname": "Surname",
+  "company": "Company",
+  "email": "Email",
+  "email_confirmed": "Email confirmed",
+  "company_id": "Company id",
+  "vat_id": "VAT id",
+  "role": "Role",
+  "billing_information": "Billing information",
+  "delivery_information": "Delivery information",
+  "street": "Street",
+  "postcode": "Postcode",
+  "city": "City",
+  "country": "Coutry",
+  "general_information": "General information",
+  "yes": "Yes",
+  "no": "No",
+  "edit": "Edit",
+  "go_back": "Go back",
+  "cancel": "Cancel",
+  "save": "Save",
+  "modal_title": "Edit user",
+  "success_msg": "User was successfully edited",
+  "error_msg": "Error while editing user"
+}

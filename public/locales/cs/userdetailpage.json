@@ -1,0 +1,28 @@
+
+{
+  "pagetitle": "Detail uživatele",
+  "first_name": "Jméno",
+  "surname": "Příjmení",
+  "company": "Firma",
+  "email": "Email",
+  "email_confirmed": "Potvrzený email",
+  "company_id": "Id firmy",
+  "vat_id": "DIČ",
+  "role": "Role",
+  "billing_information": "Fakturační údaje",
+  "delivery_information": "Doručovací údaje",
+  "street": "Ulice",
+  "postcode": "PSČ",
+  "city": "Město",
+  "country": "Země",
+  "general_information": "Obecné informace",
+  "yes": "Ano",
+  "no": "Ne",
+  "edit": "Upravit",
+  "go_back": "Zpět",
+  "cancel": "Zrušit",
+  "save": "Uložit",
+  "modal_title": "Upravit uživatele",
+  "success_msg": "Uživatel byl úspěšně upraven",
+  "error_msg": "Nastala chyba při pokusu upravit uživatele"
+}

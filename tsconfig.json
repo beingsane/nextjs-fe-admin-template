@@ -29,6 +29,9 @@
       "@contexts/*": [
         "./src/contexts/*"
       ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
       "@helpers": [
         "./src/helpers/*"
       ],
