@@ -17,12 +17,9 @@ const UserListHeadingCTA: React.FC<IProps> = ({ className }) => {
     <Grid item xs={2} className={className}>
       <Button variant="contained" color="primary">Create new</Button>
     </Grid>
-
   );
 };
 
 export default styled(UserListHeadingCTA)`
-  text-align: right;
-  margin-left: 3.8vw;
-  margin-top: 0.5vh;
+    margin-top: 2vh;
 `;

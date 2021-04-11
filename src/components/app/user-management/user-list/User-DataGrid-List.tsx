@@ -28,23 +28,29 @@ const UserDataGridList: React.FC<IProps> = ({ className, users }) => {
 
   return (
     <div className={className}>
-      <DataGrid
-        onRowClick={(param) => {
-          router.push(`users/${param.row.id}`);
-        }}
-        rows={users}
-        columns={columns}
-        pageSize={5}
-        checkboxSelection={false} autoHeight={true}
-
-      />
+      <div style={{ display: 'flex', height: '100%' }}>
+        <div style={{ flexGrow: 1 }}>
+          <DataGrid
+            onRowClick={(param) => {
+              router.push(`users/${param.row.id}`);
+            }}
+            rows={users}
+            columns={columns}
+            pageSize={5}
+            checkboxSelection={false} autoHeight={true}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
 export default styled(UserDataGridList)`
-  margin: auto;
-  width: 70%;
-  border: 0.5px solid whitesmoke;
-  padding: 10px;
+  // margin: auto;
+  // width: 70%;
+  // border: 0.5px solid whitesmoke;
+  // padding: 10px;
+
+  height: 400px;
+  width: 60%;
 `;
